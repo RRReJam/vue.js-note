@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div>
+        <input type="text" v-model="length">
+        {{length | meter}}
+    </div>
+    <br>
+    <div>
+    <input type="text" v-model="price">
+    {{price | currency('')}}
+    </div>
+</div>
+
+
+<script src="js/vue.js"></script>
+<script src="js/myjs13.js"></script>
+</body>
+</html>

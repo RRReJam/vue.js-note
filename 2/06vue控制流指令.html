@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div v-if="role == 'admin' ">
+        管理员你好
+    </div>
+    <div v-else-if="role == 'hr' ">
+        hr
+    </div>
+    <div v-else>
+        无权限
+    </div>
+
+</div>
+
+<script src="js/vue.js"></script>
+<script src="js/myjs06.js"></script>
+</body>
+</html>
