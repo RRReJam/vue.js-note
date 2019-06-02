@@ -1,0 +1,103 @@
+*{
+
+    box-sizing: border-box;
+    position: relative;
+}
+.main{
+    position: relative;
+}
+input,button,textarea{
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 2px;
+    padding: 5px;
+}
+input,textarea{
+    outline: none;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+input:focus, textarea:focus {
+    border: 1px solid #db4c3f;
+}
+.nav {
+    background-color: #db4c3f;
+    text-align: center;
+    color: #f7f3ea;
+    padding: 10px 0;
+}
+.nav h1 {
+    font-size: 25px;
+    margin: 0;
+}
+
+.header{
+    text-align: center;
+    padding: 20px 0 ;
+    color: #555;
+    font-size: 18px;
+}
+.w{
+    margin: 0 auto;
+    max-width: 500px;
+}
+.task-list .item button{
+    display: none;
+}
+.task-list .item:hover button{
+    display: inline-block;
+}
+.toggle_complete{
+    width: 32px;
+    height: 32px;
+    background-image: url("../img/check.png ");
+
+}
+.task-list .item .title{
+    padding: 10px;
+
+}
+.task-list .item >*{
+    vertical-align: middle;
+    display:inline-block;
+    padding: 5px;
+    line-height: 1.2;
+}
+.task-list .item .toggle_complete,
+.task-list .item .untoggle_complete{
+    display: none;
+}
+
+.task-list .item:hover .toggle_complete,
+.task-list .item:hover .untoggle_complete{
+    display: inline-block;
+}
+.task-list .item .detail{
+
+    display: block;
+}
+.task-list .seetitle{
+    color: #777;
+
+}
+.untoggle_complete{
+    width: 32px;
+    height: 32px;
+    background-image: url("../img/ucheck.png");
+}
+
+.task-list .item button{
+    float: right;
+
+}
+.footer{
+    background-color: #555555;
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    margin-top: 500px;
+
+}
+
+

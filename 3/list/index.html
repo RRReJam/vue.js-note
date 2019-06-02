@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div id="main">
+    <div class="nav">
+        <h1>ReJam的事情清单</h1>
+    </div>
+    <div class="header">
+        还学习呢 今天游戏玩了吗
+    </div>
+    <form @submit.prevent="merge" id="task-form">
+        <div class="w">
+
+        <input v-model="current.title" type="text" id="task-input" autocomplete="off">
+            <div v-if="current.id" class="detail">
+                <textarea v-model="current.desc" style="resize: none;height: 200px"></textarea>
+                <input type="datetime-local" v-model="current.alert_at">
+                <button type="submit">提交</button>
+            </div>
+
+        </div>
+    </form>
+    <div class="task-list">
+        <div class="w">
+            <div style="color: deepskyblue">未完成</div>
+            <task  :todo="todo" v-if="!todo.completed" v-for="(todo,index) in list"></task>
+
+        </div>
+    </div>
+    <div class="task-list">
+        <div class="w">
+            <div style="color: #777">已完成</div>
+            <div v-if="todo.completed" v-for="(todo,index) in list" class="complete item">
+                <div @click="toggle(todo.id)" class="untoggle_complete"></div>
+                <span class="title">{{todo.title}}</span>
+                <button @click="remove(todo.id)" style="width: 32px;height: 32px;background:url('img/delete.png');border: none"></button>
+            </div>
+            </div>
+        </div>
+    </div>
+<div class="footer">
+    <div class="w">
+        <div>
+          <div style="margin-top: 50px">By RRReJam</div>
+            <div>github: <a href="https://github.com/RRReJam" style="text-decoration: none">https://github.com/RRReJam</a></div>
+        </div>
+    </div>
+</div>
+
+<audio id="alert_sound" style="display: none">
+    <source src="sounds/xi%20-%20ANiMA.mp3">
+</audio>
+<template id="task-tpl">
+    <div class=" item">
+        <div  @click="action('toggle',todo.id)" class="toggle_complete"></div>
+        <span class="title">{{todo.title}}</span>
+
+        <button @click="action('remove',todo.id)" style="width: 32px;height: 32px;background:url('img/delete.png');border: none"></button>
+        <button @click="action('set_current',todo)"  style="width: 32px;height: 32px;background:url('img/update.png');border: none"></button>
+        <button @click="action('open_detail',todo.id)" style="width: 32px;height: 32px;background:url('img/detail.png');border: none"></button>
+        <div v-if="todo.show_detail" class="detail">
+            {{todo.desc || '暂无详情'}}
+        </div>
+    </div>
+
+</template>
+
+
+
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="js/Storage.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
