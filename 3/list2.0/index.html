@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div id="main">
+    <div class="nav row">
+        <div style="text-align: center;color: #ecf0f1;font-size: 20px">事情todo</div>
+    </div>
+    <div class="header">
+        <div class="title">你好世界</div>
+    </div>
+    <form @submit.prevent="merge" id="task-form">
+        <div class="container">
+        <input v-model="current.title" id="task-input" type="text" autocomplete="off">
+        <button type="submit">提交</button></div>
+    </form>
+    </form>
+    <div class="task-list container">
+        <div class="container">
+            未完成
+            <div v-for="(todo ,index) in list" class="item">
+                {{todo.title}}
+                <button @click="remove(todo.id)">删除</button>
+                <button @click="set_current(todo)">更新</button>
+            </div>
+        </div>
+    </div>
+    <div class="task-list container">
+        <div class="container">
+            已完成
+            <div class="item complete">lorem</div>
+        </div>
+    </div>
+    <div class="footer"></div>
+
+</div>
+</body>
+</html>
+<script src="js/Storage.js"></script>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="js/main.js"></script>
